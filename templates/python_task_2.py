@@ -116,6 +116,10 @@ def calculate_time_based_toll_rates(df)->pd.DataFrame():
     Returns:
         pandas.DataFrame
     """
-    # Write your logic here
+    # distance_matrix = calculate_distance_matrix(df3)
+unrolled_df = unroll_distance_matrix(distance_matrix)
+selected_ids = find_ids_within_ten_percentage_threshold(unrolled_df, reference_value=1)
+toll_rate_df = calculate_toll_rate(unrolled_df)
+time_based_toll_rates_df = calculate_time_based_toll_rates(unrolled_df)
 
     return df
